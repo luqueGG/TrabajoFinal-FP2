@@ -63,10 +63,12 @@ public class MenuInterfaz extends JFrame {
 
 	// Agregar los paneles a la ventana principal:
 	private void establecerFondoMenu() {
+		panelMenu.setBackground(FONDO);
 		panelMenu.setLayout(new BorderLayout()); // Para establecer SOUTH, CENTER y NORTH
 		panelMenu.add(titulo, BorderLayout.NORTH);
 		// Panel de ingreso con BoxLayout para los botones en columna
 		panelIngreso.setLayout(new BoxLayout(panelIngreso, BoxLayout.Y_AXIS));
+		panelIngreso.setBackground(FONDO); // Color del panel
 		// Centrar el panel de botones verticalmente
 		panelIngreso.add(Box.createVerticalGlue()); // Esto empuja los componentes hacia el centro verticalmente
 		btnJugar.setAlignmentX(CENTER_ALIGNMENT);
@@ -93,6 +95,7 @@ public class MenuInterfaz extends JFrame {
 	}
 	// Agregar la imagen a la ventana principal
 	private void establecerFondoImagen() {
+		panelImagen.setBackground(FONDO); // Color 
 		panelImagen.setLayout(new BorderLayout());
 		imagen.setIcon(new ImageIcon(imagenUrl));
 		panelImagen.add(imagen, BorderLayout.CENTER);

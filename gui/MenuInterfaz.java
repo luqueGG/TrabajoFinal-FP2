@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -51,6 +52,7 @@ public class MenuInterfaz extends JFrame {
 		establecerFondoImagen();
 		// Distinas acciones (eventos)
 		acciones();
+		// Cerrar ventana, valores:
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -70,6 +72,12 @@ public class MenuInterfaz extends JFrame {
 		// Agregado a la ventana MENU Interfaz
 		add(panelMenu, BorderLayout.WEST);
 		
+	}
+	// Botones, tamaño por defecto
+	private void renderizarBotones() {
+		btnJugar.setPreferredSize(new Dimension(150, 40));
+        btnOpciones.setPreferredSize(new Dimension(150, 40));
+        btnSalir.setPreferredSize(new Dimension(150, 40));
 	}
 	// Agregar la imagen a la ventana principal
 	private void establecerFondoImagen() {

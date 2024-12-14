@@ -69,10 +69,13 @@ public class MenuInterfaz extends JFrame {
 		panelIngreso.setLayout(new BoxLayout(panelIngreso, BoxLayout.Y_AXIS));
 		// Centrar el panel de botones verticalmente
 		panelIngreso.add(Box.createVerticalGlue()); // Esto empuja los componentes hacia el centro verticalmente
+		btnJugar.setAlignmentX(CENTER_ALIGNMENT);
 		panelIngreso.add(btnJugar);
 		panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
+		btnOpciones.setAlignmentX(CENTER_ALIGNMENT);
 		panelIngreso.add(btnOpciones);
 		panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
+		btnSalir.setAlignmentX(CENTER_ALIGNMENT);
 		panelIngreso.add(btnSalir);
 		panelIngreso.add(Box.createVerticalGlue()); // Esto empuja los componentes hacia el centro verticalmente
 		// Agregado panel ingreso al MENU

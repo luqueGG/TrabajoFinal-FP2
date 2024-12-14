@@ -60,29 +60,33 @@ public class MenuInterfaz extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
+
 	// Agregar los paneles a la ventana principal:
 	private void establecerFondoMenu() {
 		panelMenu.setLayout(new BorderLayout()); // Para establecer SOUTH, CENTER y NORTH
 		panelMenu.add(titulo, BorderLayout.NORTH);
-		// Panel derecha: menu ingreso
-		panelIngreso.setLayout(new BoxLayout(panelIngreso, BoxLayout.Y_AXIS)); // Para botones evitar anchamiento
-        panelIngreso.add(btnJugar);
-        panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
-        panelIngreso.add(btnOpciones);
-        panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
-        panelIngreso.add(btnSalir);
-		// Agregado panel derecha al MENU
+		// Panel de ingreso con BoxLayout para los botones en columna
+		panelIngreso.setLayout(new BoxLayout(panelIngreso, BoxLayout.Y_AXIS));
+		// Centrar el panel de botones verticalmente
+		panelIngreso.add(Box.createVerticalGlue()); // Esto empuja los componentes hacia el centro verticalmente
+		panelIngreso.add(btnJugar);
+		panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
+		panelIngreso.add(btnOpciones);
+		panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
+		panelIngreso.add(btnSalir);
+		panelIngreso.add(Box.createVerticalGlue()); // Esto empuja los componentes hacia el centro verticalmente
+		// Agregado panel ingreso al MENU
 		panelMenu.add(panelIngreso, BorderLayout.CENTER);
 		panelMenu.add(autor, BorderLayout.SOUTH);
 		// Agregado a la ventana MENU Interfaz
 		add(panelMenu, BorderLayout.WEST);
-		
 	}
+
 	// Botones, tamaño por defecto
 	private void renderizarBotones() {
 		btnJugar.setPreferredSize(new Dimension(150, 40));
-        btnOpciones.setPreferredSize(new Dimension(150, 40));
-        btnSalir.setPreferredSize(new Dimension(150, 40));
+		btnOpciones.setPreferredSize(new Dimension(150, 40));
+		btnSalir.setPreferredSize(new Dimension(150, 40));
 	}
 	// Agregar la imagen a la ventana principal
 	private void establecerFondoImagen() {

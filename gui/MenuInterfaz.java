@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Color;
@@ -63,10 +65,12 @@ public class MenuInterfaz extends JFrame {
 		panelMenu.setLayout(new BorderLayout()); // Para establecer SOUTH, CENTER y NORTH
 		panelMenu.add(titulo, BorderLayout.NORTH);
 		// Panel derecha: menu ingreso
-		panelIngreso.setLayout(new BorderLayout()); // Para botones en SOUTH, CENTER y NORTH
-		panelIngreso.add(btnJugar, BorderLayout.NORTH);
-		panelIngreso.add(btnOpciones, BorderLayout.CENTER);
-		panelIngreso.add(btnSalir, BorderLayout.SOUTH);
+		panelIngreso.setLayout(new BoxLayout(panelIngreso, BoxLayout.Y_AXIS)); // Para botones evitar anchamiento
+        panelIngreso.add(btnJugar);
+        panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
+        panelIngreso.add(btnOpciones);
+        panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
+        panelIngreso.add(btnSalir);
 		// Agregado panel derecha al MENU
 		panelMenu.add(panelIngreso, BorderLayout.CENTER);
 		panelMenu.add(autor, BorderLayout.SOUTH);

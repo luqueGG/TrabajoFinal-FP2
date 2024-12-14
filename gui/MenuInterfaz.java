@@ -61,7 +61,6 @@ public class MenuInterfaz extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
-
 	// Agregar los paneles a la ventana principal:
 	private void establecerFondoMenu() {
 		// LABELS FONTS Y COLORS
@@ -93,7 +92,6 @@ public class MenuInterfaz extends JFrame {
 		// Agregado a la ventana MENU Interfaz
 		add(panelMenu, BorderLayout.WEST);
 	}
-
 	// Botones, tamaño por defecto
 	private void renderizarBotones() {
 		// Size
@@ -119,6 +117,8 @@ public class MenuInterfaz extends JFrame {
 	}
 	// Acciones, conjunto de eventos que se podrian cumplir
 	private void acciones() {
+		actionBtnJugar(); // Jugar -play
+		actionBtnJugar(); // Para las opciones y edicion del juego
 		actionBtnSalir(); // Por si se quiere salir
 	}
 	// ACCION: SI se presiona SALIR, el programa muere
@@ -129,5 +129,21 @@ public class MenuInterfaz extends JFrame {
             	System.exit(0);
             }
         });
+	}
+	private void actionBtnJugar () {
+		btnJugar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new MenuEleccion();
+			}
+		});
+	}
+	private void actionBtnOpciones () {
+		btnOpciones.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new MenuOpciones();
+			}
+		});
 	}
 }

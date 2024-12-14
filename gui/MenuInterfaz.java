@@ -103,7 +103,11 @@ public class MenuInterfaz extends JFrame {
 		// Color
 		btnJugar.setBackground(new Color(144,171,185));
 		btnOpciones.setBackground(new Color(144,171,185));
-		btnSalir.setBackground(new Color(144,171,185));	
+		btnSalir.setBackground(new Color(144,171,185));
+		// Focus desaparecido
+		btnJugar.setFocusPainted(false);
+		btnOpciones.setFocusPainted(false);
+		btnSalir.setFocusPainted(false);	
 	}
 	// Agregar la imagen a la ventana principal
 	private void establecerFondoImagen() {

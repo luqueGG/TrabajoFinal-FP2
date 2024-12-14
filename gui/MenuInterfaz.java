@@ -64,8 +64,12 @@ public class MenuInterfaz extends JFrame {
 
 	// Agregar los paneles a la ventana principal:
 	private void establecerFondoMenu() {
+		// LABELS FONTS Y COLORS
 		titulo.setFont(new Font("Arial", Font.BOLD, 30));
 		titulo.setForeground(Color.WHITE);
+		autor.setFont(new Font("Arial", Font.BOLD, 30));
+		autor.setForeground(Color.WHITE);
+		// Inicio de los paneles
 		panelMenu.setBackground(FONDO);
 		panelMenu.setLayout(new BorderLayout()); // Para establecer SOUTH, CENTER y NORTH
 		panelMenu.add(titulo, BorderLayout.NORTH);

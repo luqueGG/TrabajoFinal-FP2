@@ -34,7 +34,7 @@ public class MenuInterfaz extends JFrame {
 	private JButton btnSalir = new JButton("SALIR");
 	// TEXTO
 	private JLabel titulo = new JLabel("Proyecto");
-	private JLabel autor = new JLabel("POR LUQUE GUEVARA");
+	private JLabel autor = new JLabel("por fernando");
 	// IMAGEN
 	private URL imagenUrl = MenuInterfaz.class.getResource("/assets/rosaMenu.png");
 	private JLabel imagen = new JLabel();
@@ -80,10 +80,10 @@ public class MenuInterfaz extends JFrame {
 		panelIngreso.add(Box.createVerticalGlue()); // Esto empuja los componentes hacia el centro verticalmente
 		btnJugar.setAlignmentX(CENTER_ALIGNMENT);
 		panelIngreso.add(btnJugar);
-		panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
+		panelIngreso.add(Box.createVerticalStrut(30)); // Espacio entre botones
 		btnOpciones.setAlignmentX(CENTER_ALIGNMENT);
 		panelIngreso.add(btnOpciones);
-		panelIngreso.add(Box.createVerticalStrut(10)); // Espacio entre botones
+		panelIngreso.add(Box.createVerticalStrut(30)); // Espacio entre botones
 		btnSalir.setAlignmentX(CENTER_ALIGNMENT);
 		panelIngreso.add(btnSalir);
 		panelIngreso.add(Box.createVerticalGlue()); // Esto empuja los componentes hacia el centro verticalmente
@@ -96,9 +96,14 @@ public class MenuInterfaz extends JFrame {
 
 	// Botones, tamaño por defecto
 	private void renderizarBotones() {
+		// Size
 		btnJugar.setPreferredSize(new Dimension(150, 40));
 		btnOpciones.setPreferredSize(new Dimension(150, 40));
 		btnSalir.setPreferredSize(new Dimension(150, 40));
+		// Color
+		btnJugar.setBackground(new Color(144,171,185));
+		btnOpciones.setBackground(new Color(144,171,185));
+		btnSalir.setBackground(new Color(144,171,185));	
 	}
 	// Agregar la imagen a la ventana principal
 	private void establecerFondoImagen() {

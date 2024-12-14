@@ -32,7 +32,7 @@ public class MenuInterfaz extends JFrame {
 	private JLabel titulo = new JLabel("Proyecto");
 	private JLabel autor = new JLabel("POR LUQUE GUEVARA FERNANDO GERSON");
 	// IMAGEN
-	private URL imagenUrl = MenuInterfaz.class.getResource("/assets/shield.png");
+	private URL imagenUrl = MenuInterfaz.class.getResource("/assets/rosaMenu.png");
 	private JLabel imagen = new JLabel();
 	
 	// Constructor

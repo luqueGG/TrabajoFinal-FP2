@@ -118,7 +118,7 @@ public class MenuInterfaz extends JFrame {
 	// Acciones, conjunto de eventos que se podrian cumplir
 	private void acciones() {
 		actionBtnJugar(); // Jugar -play
-		actionBtnJugar(); // Para las opciones y edicion del juego
+		actionBtnOpciones(); // Para las opciones y edicion del juego
 		actionBtnSalir(); // Por si se quiere salir
 	}
 	// ACCION: SI se presiona SALIR, el programa muere

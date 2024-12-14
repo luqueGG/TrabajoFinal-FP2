@@ -41,7 +41,8 @@ public class MenuInterfaz extends JFrame {
 		setSize(WIDTH,HEIGHT);
 		setTitle("Proyecto final");		
 		setLayout(new BorderLayout()); // 1 row, 2 cols
-		getContentPane().setBackground(FONDO); // Un tono grisaseo azulado		
+		getContentPane().setBackground(FONDO); // Un tono grisaseo azulado
+		renderizarBotones(); // Ahora los botones tienen un aspecto mas chico		
 		/**
 		 * Implementacion de los paneles: panelMenu a la Izq | panelImagen a la Der
 		 * - Dentro de panelMenu -> titulo

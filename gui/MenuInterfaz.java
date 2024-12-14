@@ -11,6 +11,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -24,9 +25,11 @@ public class MenuInterfaz extends JFrame {
 	private static final int HEIGHT = 480;
 	private static final Color FONDO = new Color(93,93,110);
 	// PANELES NIVEL 0
+	private JPanel panelPadre = new JPanel(); // El panel padre
+	// PANELES NIVEL 1
 	private JPanel panelMenu = new JPanel(); // ESTARAN AQUI LAS OPCIONES DEL MENU PRINCIPAL
 	private JPanel panelImagen = new JPanel(); // LA IMAGEN PARA RELLENAR LOS ESPACIOS
-	// PANELES NIVEL 1
+	// PANELES NIVEL 2
 	private JPanel panelIngreso = new JPanel(); // JUGAR, OPCIONES, SALIR
 	// BOTONES
 	private JButton btnJugar = new JButton("JUGAR");
@@ -45,7 +48,9 @@ public class MenuInterfaz extends JFrame {
 		setTitle("Proyecto final");		
 		setLayout(new BorderLayout()); // 1 row, 2 cols
 		getContentPane().setBackground(FONDO); // Un tono grisaseo azulado
-		renderizarBotones(); // Ahora los botones tienen un aspecto mas chico		
+		renderizarBotones(); // Ahora los botones tienen un aspecto mas chico
+		panelPadre.setLayout(new BorderLayout());
+		panelPadre.setBackground(FONDO);		
 		/**
 		 * Implementacion de los paneles: panelMenu a la Izq | panelImagen a la Der
 		 * - Dentro de panelMenu -> titulo
@@ -54,6 +59,7 @@ public class MenuInterfaz extends JFrame {
 		 */
 		establecerFondoMenu();
 		establecerFondoImagen();
+		add(panelPadre);
 		// Distinas acciones (eventos)
 		acciones();
 		// Cerrar ventana, valores:
@@ -90,7 +96,7 @@ public class MenuInterfaz extends JFrame {
 		panelMenu.add(panelIngreso, BorderLayout.CENTER);
 		panelMenu.add(autor, BorderLayout.SOUTH);
 		// Agregado a la ventana MENU Interfaz
-		add(panelMenu, BorderLayout.WEST);
+		panelPadre.add(panelMenu, BorderLayout.WEST);
 	}
 	// Botones, tamaño por defecto
 	private void renderizarBotones() {
@@ -113,7 +119,7 @@ public class MenuInterfaz extends JFrame {
 		panelImagen.setLayout(new BorderLayout());
 		imagen.setIcon(new ImageIcon(imagenUrl));
 		panelImagen.add(imagen, BorderLayout.CENTER);
-		add(panelImagen, BorderLayout.EAST);
+		panelPadre.add(panelImagen, BorderLayout.EAST);
 	}
 	// Acciones, conjunto de eventos que se podrian cumplir
 	private void acciones() {
@@ -134,7 +140,10 @@ public class MenuInterfaz extends JFrame {
 		btnJugar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new MenuEleccion();
+				panelPadre.removeAll();
+				panelPadre.add(new PanelMenuEleccion());
+				panelPadre.revalidate();
+				panelPadre.repaint();
 			}
 		});
 	}
@@ -142,7 +151,7 @@ public class MenuInterfaz extends JFrame {
 		btnOpciones.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new MenuOpciones();
+				
 			}
 		});
 	}

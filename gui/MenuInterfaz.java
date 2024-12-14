@@ -11,6 +11,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -33,7 +34,7 @@ public class MenuInterfaz extends JFrame {
 	private JButton btnSalir = new JButton("SALIR");
 	// TEXTO
 	private JLabel titulo = new JLabel("Proyecto");
-	private JLabel autor = new JLabel("POR LUQUE GUEVARA FERNANDO GERSON");
+	private JLabel autor = new JLabel("POR LUQUE GUEVARA");
 	// IMAGEN
 	private URL imagenUrl = MenuInterfaz.class.getResource("/assets/rosaMenu.png");
 	private JLabel imagen = new JLabel();
@@ -63,6 +64,7 @@ public class MenuInterfaz extends JFrame {
 
 	// Agregar los paneles a la ventana principal:
 	private void establecerFondoMenu() {
+		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		panelMenu.setBackground(FONDO);
 		panelMenu.setLayout(new BorderLayout()); // Para establecer SOUTH, CENTER y NORTH
 		panelMenu.add(titulo, BorderLayout.NORTH);

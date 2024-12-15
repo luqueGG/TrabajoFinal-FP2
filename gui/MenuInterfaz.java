@@ -11,7 +11,6 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -41,7 +40,8 @@ public class MenuInterfaz extends JFrame {
 	// IMAGEN
 	private URL imagenUrl = MenuInterfaz.class.getResource("/assets/rosaMenu.png");
 	private JLabel imagen = new JLabel();
-	
+	// Ventanas
+	private JFrame ventanaEleccionJugar;
 	// Constructor
 	public MenuInterfaz () {		
 		setSize(WIDTH,HEIGHT);
@@ -140,7 +140,7 @@ public class MenuInterfaz extends JFrame {
 		btnJugar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new MenuEleccion();				
+				ventanaEleccionJugar = new MenuEleccion();			
 			}
 		});
 	}

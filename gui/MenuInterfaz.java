@@ -40,8 +40,6 @@ public class MenuInterfaz extends JFrame {
 	// IMAGEN
 	private URL imagenUrl = MenuInterfaz.class.getResource("/assets/rosaMenu.png");
 	private JLabel imagen = new JLabel();
-	// Ventanas
-	private JFrame ventanaEleccionJugar;
 	// Constructor
 	public MenuInterfaz () {		
 		setSize(WIDTH,HEIGHT);
@@ -140,7 +138,7 @@ public class MenuInterfaz extends JFrame {
 		btnJugar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ventanaEleccionJugar = new MenuEleccion();			
+				new MenuEleccion();			
 			}
 		});
 	}

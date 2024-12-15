@@ -140,10 +140,7 @@ public class MenuInterfaz extends JFrame {
 		btnJugar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				panelPadre.removeAll();
-				panelPadre.add(new PanelMenuEleccion());
-				panelPadre.revalidate();
-				panelPadre.repaint();
+				new MenuEleccion();				
 			}
 		});
 	}

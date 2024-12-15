@@ -6,10 +6,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import java.awt.*;
 
 public class MenuEleccion extends JFrame{
     private static final Color FONDO = new Color(93,93,110);
+    private JButton btnAtras = new JButton("Atras");
     // Labels para el ICON
     private JLabel lblPers1;
     private JLabel lblPers2;
@@ -29,10 +33,9 @@ public class MenuEleccion extends JFrame{
         getContentPane().setBackground(FONDO);
         setLayout(null);
 
-        // Crear el botón pequeño en la esquina superior izquierda
-        JButton smallButton = new JButton("Small");
-        smallButton.setBounds(10, 10, 80, 30); // Botón pequeño
-        add(smallButton);
+        // Crear el boton pequeño en la esquina superior izquierda        
+        btnAtras.setBounds(10, 10, 80, 30); // Botón pequeño
+        add(btnAtras);
 
         // Panel principal para los JLabels y JButtons (centrado)
         gridPanel = new JPanel();
@@ -51,19 +54,19 @@ public class MenuEleccion extends JFrame{
     private void agregarContenido(){
         lblPers1 = new JLabel("Label 1", SwingConstants.CENTER);
         lblPers1.setForeground(Color.BLACK);
-        btnPers1 = new JButton("Button 1" );
+        btnPers1 = new JButton("Jugar con" );
         
         lblPers2 = new JLabel("Label 2", SwingConstants.CENTER);
         lblPers2.setForeground(Color.BLACK);
-        btnPers2 = new JButton("Button 2");
+        btnPers2 = new JButton("Jugar con");
         
         lblPers3 = new JLabel("Label 3", SwingConstants.CENTER);
         lblPers3.setForeground(Color.BLACK);
-        btnPers3 = new JButton("Button 3");
+        btnPers3 = new JButton("Jugar con");
         
         lblPers4 = new JLabel("Label 4", SwingConstants.CENTER);
         lblPers4.setForeground(Color.BLACK);
-        btnPers4 = new JButton("Button 4");
+        btnPers4 = new JButton("Jugar con");
         
         gridPanel.add(lblPers1);
         gridPanel.add(btnPers1);                
@@ -75,6 +78,14 @@ public class MenuEleccion extends JFrame{
         gridPanel.add(btnPers4);
     }
     private void acciones(){
-
+        actionBtnAtras();
     }
+    private void actionBtnAtras () {
+        btnAtras.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	dispose();
+            }
+        });
+	}
 }

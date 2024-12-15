@@ -1,5 +1,6 @@
 package gui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,7 +9,7 @@ import javax.swing.SwingConstants;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.net.URL;
 import java.awt.*;
 
 public class MenuEleccion extends JFrame{
@@ -24,6 +25,8 @@ public class MenuEleccion extends JFrame{
     private JButton btnPers2;
     private JButton btnPers3;
     private JButton btnPers4;
+    // Imagenes
+    private URL imagenUrlPers1 = MenuInterfaz.class.getResource("/assets/cangrejo.png");
     // Paneles
     private JPanel gridPanel ;
     public MenuEleccion() {
@@ -52,8 +55,8 @@ public class MenuEleccion extends JFrame{
         setVisible(true);
     }
     private void agregarContenido(){
-        lblPers1 = new JLabel("Label 1", SwingConstants.CENTER);
-        lblPers1.setForeground(Color.BLACK);
+        lblPers1 = new JLabel("", SwingConstants.CENTER);
+        lblPers1.setIcon(new ImageIcon(imagenUrlPers1));
         btnPers1 = new JButton("Jugar con" );
         
         lblPers2 = new JLabel("Label 2", SwingConstants.CENTER);

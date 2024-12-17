@@ -29,7 +29,7 @@ public class Jugar extends JFrame {
         // Crear paneles para cada columna
         columna1 = crearColumna(imagen, jugador1, jugador2, "Jugador 1");
         columna2 = new JPanel(); // Panel vacío para la columna central
-        columna2.setBackground(FONDO);
+        columna2.setBackground(Color.BLACK);
         columna3 = crearColumna(imagen, jugador2, jugador1, "Jugador 2");
 
         // Añadir paneles a la ventana

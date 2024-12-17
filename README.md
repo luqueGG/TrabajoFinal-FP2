@@ -29,7 +29,7 @@
 <tr><th colspan="6">INFORMACIÓN BÁSICA</th></tr>
 </theader>
 <tbody>
-<tr><td>ASIGNATURA:</td><td colspan="5">FUNDAMENTOS DE PROGRMACION</td></tr>
+<tr><td>ASIGNATURA:</td><td colspan="5">LABORATORIO - FUNDAMENTOS DE PROGRAMACION II</td></tr>
 <tr><td>TÍTULO DEL LABORATORIO:</td><td colspan="5">TRABAJO FINAL</td></tr>
 <tr>
 <td>NÚMERO DE LABORATORIO:</td><td>Trabajo final</td><td>AÑO LECTIVO:</td><td>2024-B</td><td>NRO. SEMESTRE:</td><td>II</td>

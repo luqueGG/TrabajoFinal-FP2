@@ -86,6 +86,9 @@ public class MenuEleccion extends JFrame{
     private void acciones(){
         actionBtnAtras();
         actionBtnJugar1();
+        actionBtnJugar2();
+        actionBtnJugar3();
+        actionBtnJugar4();
     }
     private void actionBtnAtras () {
         btnAtras.addActionListener(new ActionListener() {
@@ -99,7 +102,31 @@ public class MenuEleccion extends JFrame{
         btnPers1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	new Jugar();
+            	new Jugar(imagenUrlPers1);
+            }
+        });
+    }
+    private void actionBtnJugar2() {
+        btnPers2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	new Jugar(imagenUrlPers2);
+            }
+        });
+    }
+    private void actionBtnJugar3() {
+        btnPers3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	new Jugar(imagenUrlPers3);
+            }
+        });
+    }
+    private void actionBtnJugar4() {
+        btnPers4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	new Jugar(imagenUrlPers4);
             }
         });
     }

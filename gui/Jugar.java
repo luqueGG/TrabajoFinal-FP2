@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
-
 import logic.*;
 
 public class Jugar extends JFrame {
@@ -13,29 +12,31 @@ public class Jugar extends JFrame {
     private JPanel columna1, columna2, columna3;
     private JLabel titulo, labelNivelVida1, labelNivelVida2;
 
-    private Personaje jugador1, jugador2; // Personajes
+    private Personaje jugador1, jugador2;
     private ControladorJuego controlador;
 
-    private boolean turnoJugador1 = true; // Turno inicial del Jugador 1
+    private boolean turnoJugador1 = true;
+
+    private JButton btnAtaque1, btnDefensa1; // Botones Jugador 1
+    private JButton btnAtaque2, btnDefensa2; // Botones Jugador 2
 
     public Jugar(URL imagen) {
         setSize(600, 480);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         getContentPane().setBackground(FONDO);
-        setLayout(new GridLayout(1, 3)); // Divide la ventana en 3 columnas
+        setLayout(new GridLayout(1, 3));
 
         // Inicializar personajes y controlador
-        jugador1 = new Personaje(); // Ataque, Defensa, Nivel de Vida
+        jugador1 = new Personaje();
         jugador2 = new Personaje();
         controlador = new ControladorJuego(jugador1, jugador2);
 
         // Crear paneles para cada columna
         columna1 = crearColumna(imagen, jugador1, jugador2, "Jugador 1");
-        columna2 = crearPanelCentral(); // Panel central personalizado
+        columna2 = crearPanelCentral();
         columna3 = crearColumna(imagen, jugador2, jugador1, "Jugador 2");
 
-        // Añadir paneles a la ventana
         add(columna1);
         add(columna2);
         add(columna3);
@@ -47,12 +48,10 @@ public class Jugar extends JFrame {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(FONDO);
 
-        // Centro: JLabel con imagen
         titulo = new JLabel(nombreJugador, SwingConstants.CENTER);
         titulo.setIcon(new ImageIcon(imagen));
         panel.add(titulo, BorderLayout.CENTER);
 
-        // Sur: Botones y JLabel (Nivel de vida)
         JPanel surPanel = new JPanel();
         surPanel.setLayout(new BoxLayout(surPanel, BoxLayout.Y_AXIS));
         surPanel.setBackground(FONDO);
@@ -63,12 +62,22 @@ public class Jugar extends JFrame {
         JLabel labelNivelVida = new JLabel("Vida: " + jugador.getNivelVida(), SwingConstants.CENTER);
         labelNivelVida.setForeground(Color.WHITE);
 
-        // Configurar alineación
         btnAtaque.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnDefensa.setAlignmentX(Component.CENTER_ALIGNMENT);
         labelNivelVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Asignar acciones a los botones con validación de turno
+        // Guardar referencias a los botones
+        if (nombreJugador.equals("Jugador 1")) {
+            btnAtaque1 = btnAtaque;
+            btnDefensa1 = btnDefensa;
+            labelNivelVida1 = labelNivelVida;
+        } else {
+            btnAtaque2 = btnAtaque;
+            btnDefensa2 = btnDefensa;
+            labelNivelVida2 = labelNivelVida;
+        }
+
+        // Asignar acciones con verificación de vida
         btnAtaque.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -76,6 +85,7 @@ public class Jugar extends JFrame {
                     controlador.atacar(jugador, oponente);
                     cambiarTurno();
                     actualizarVida();
+                    verificarGanador();
                 }
             }
         });
@@ -87,16 +97,10 @@ public class Jugar extends JFrame {
                     controlador.defender(jugador);
                     cambiarTurno();
                     actualizarVida();
+                    verificarGanador();
                 }
             }
         });
-
-        // Guardar referencia a los JLabel de nivel de vida para actualización
-        if (nombreJugador.equals("Jugador 1")) {
-            labelNivelVida1 = labelNivelVida;
-        } else {
-            labelNivelVida2 = labelNivelVida;
-        }
 
         surPanel.add(Box.createRigidArea(new Dimension(0, 10)));
         surPanel.add(btnAtaque);
@@ -115,7 +119,7 @@ public class Jugar extends JFrame {
 
         JLabel vsLabel = new JLabel("VS", SwingConstants.CENTER);
         vsLabel.setForeground(Color.WHITE);
-        vsLabel.setFont(new Font("Arial", Font.BOLD, 48)); // Estilo de fuente
+        vsLabel.setFont(new Font("Arial", Font.BOLD, 48));
 
         panelCentral.add(vsLabel, BorderLayout.CENTER);
         return panelCentral;
@@ -124,6 +128,23 @@ public class Jugar extends JFrame {
     private void actualizarVida() {
         labelNivelVida1.setText("Vida: " + jugador1.getNivelVida());
         labelNivelVida2.setText("Vida: " + jugador2.getNivelVida());
+    }
+
+    private void verificarGanador() {
+        if (jugador1.getNivelVida() <= 0) {
+            JOptionPane.showMessageDialog(this, "¡Jugador 2 ha ganado!", "Fin del Juego", JOptionPane.INFORMATION_MESSAGE);
+            desactivarBotones();
+        } else if (jugador2.getNivelVida() <= 0) {
+            JOptionPane.showMessageDialog(this, "¡Jugador 1 ha ganado!", "Fin del Juego", JOptionPane.INFORMATION_MESSAGE);
+            desactivarBotones();
+        }
+    }
+
+    private void desactivarBotones() {
+        btnAtaque1.setEnabled(false);
+        btnDefensa1.setEnabled(false);
+        btnAtaque2.setEnabled(false);
+        btnDefensa2.setEnabled(false);
     }
 
     private boolean validarTurno(String nombreJugador) {
@@ -137,6 +158,6 @@ public class Jugar extends JFrame {
     }
 
     private void cambiarTurno() {
-        turnoJugador1 = !turnoJugador1; // Cambiar el turno
+        turnoJugador1 = !turnoJugador1;
     }
 }

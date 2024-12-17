@@ -51,3 +51,84 @@
 </<tr>
 </tdbody>
 </table>
+# Videojuego de Turnos
+
+## Resumen del Proyecto
+Este repositorio contiene un videojuego de combate por turnos desarrollado en **Java** utilizando la biblioteca **Swing** para la interfaz gráfica. El juego permite a dos jugadores realizar ataques y defensas en turnos alternados hasta que uno de los personajes quede sin vida.
+
+---
+
+## Características Principales
+- **Juego por turnos**: Dos jugadores se alternan para atacar o defenderse.
+- **Interfaz gráfica intuitiva**: Implementada usando `Swing` para facilitar la interacción.
+- **Acciones disponibles**: Atacar para reducir la vida del oponente o defenderse para reducir el daño recibido.
+- **Sistema de vida**: El jugador pierde si su nivel de vida llega a cero.
+
+---
+
+## Tecnologías Utilizadas
+- **Lenguaje**: Java
+- **Interfaz Gráfica**: Swing (Java)
+
+---
+
+## Instrucciones de Instalación y Ejecución
+1. **Clonar el repositorio**:
+   ```bash
+   git clone https://github.com/tu-usuario/nombre-del-repositorio.git
+   ```
+2. **Compilar el proyecto**:
+   Asegúrate de tener Java instalado y configura tu entorno.
+   ```bash
+   javac Main.java
+   ```
+3. **Ejecutar el juego**:
+   ```bash
+   java Main
+   ```
+
+---
+
+## Funcionamiento del Juego
+- Al iniciar el juego, se presenta un **menú principal** donde los jugadores pueden comenzar una nueva partida o salir.
+- Cada jugador controla un personaje con un nivel de vida inicial.
+- **Opciones durante el turno**:
+  - **Atacar**: Disminuye la vida del oponente.
+  - **Defender**: Reduce el daño recibido en el próximo turno.
+- La partida finaliza cuando uno de los jugadores pierde toda su vida.
+
+---
+
+## Capturas de Pantalla
+**Menú Principal**
+![Menu Principal](ruta/a/la/captura-menu.png)
+
+**Juego en Acción**
+![Juego en Accion](ruta/a/la/captura-juego.png)
+
+---
+
+## Contribuciones
+Las contribuciones son bienvenidas. Si deseas proponer cambios o mejoras:
+1. Realiza un **fork** de este repositorio.
+2. Crea una nueva rama con tus cambios.
+   ```bash
+   git checkout -b mi-nueva-funcionalidad
+   ```
+3. Envía un **pull request**.
+
+---
+
+## Autor
+- **Nombre**: Fernando Gerson Luque Guevara
+- **Contacto**: [Correo Electrónico] | [LinkedIn]
+
+---
+
+## Licencia
+Este proyecto se distribuye bajo la licencia **MIT**. Puedes consultar los detalles [aqui](LICENSE).
+
+---
+
+## Agradecimientos
+Gracias por visitar el repositorio. ¡Espero que disfrutes jugando! 🎮

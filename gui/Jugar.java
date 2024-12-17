@@ -5,7 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+
 import logic.*;
+
 public class Jugar extends JFrame {
     private static final Color FONDO = new Color(93, 93, 110);
     private JPanel columna1, columna2, columna3;
@@ -13,6 +15,8 @@ public class Jugar extends JFrame {
 
     private Personaje jugador1, jugador2; // Personajes
     private ControladorJuego controlador;
+
+    private boolean turnoJugador1 = true; // Turno inicial del Jugador 1
 
     public Jugar(URL imagen) {
         setSize(600, 480);
@@ -28,8 +32,7 @@ public class Jugar extends JFrame {
 
         // Crear paneles para cada columna
         columna1 = crearColumna(imagen, jugador1, jugador2, "Jugador 1");
-        columna2 = new JPanel(); // Panel vacío para la columna central
-        columna2.setBackground(Color.BLACK);
+        columna2 = crearPanelCentral(); // Panel central personalizado
         columna3 = crearColumna(imagen, jugador2, jugador1, "Jugador 2");
 
         // Añadir paneles a la ventana
@@ -65,20 +68,26 @@ public class Jugar extends JFrame {
         btnDefensa.setAlignmentX(Component.CENTER_ALIGNMENT);
         labelNivelVida.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Asignar acciones a los botones
+        // Asignar acciones a los botones con validación de turno
         btnAtaque.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controlador.atacar(jugador, oponente);
-                actualizarVida();
+                if (validarTurno(nombreJugador)) {
+                    controlador.atacar(jugador, oponente);
+                    cambiarTurno();
+                    actualizarVida();
+                }
             }
         });
 
         btnDefensa.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controlador.defender(jugador);
-                actualizarVida();
+                if (validarTurno(nombreJugador)) {
+                    controlador.defender(jugador);
+                    cambiarTurno();
+                    actualizarVida();
+                }
             }
         });
 
@@ -100,8 +109,34 @@ public class Jugar extends JFrame {
         return panel;
     }
 
+    private JPanel crearPanelCentral() {
+        JPanel panelCentral = new JPanel(new BorderLayout());
+        panelCentral.setBackground(Color.BLACK);
+
+        JLabel vsLabel = new JLabel("VS", SwingConstants.CENTER);
+        vsLabel.setForeground(Color.WHITE);
+        vsLabel.setFont(new Font("Arial", Font.BOLD, 48)); // Estilo de fuente
+
+        panelCentral.add(vsLabel, BorderLayout.CENTER);
+        return panelCentral;
+    }
+
     private void actualizarVida() {
         labelNivelVida1.setText("Vida: " + jugador1.getNivelVida());
         labelNivelVida2.setText("Vida: " + jugador2.getNivelVida());
+    }
+
+    private boolean validarTurno(String nombreJugador) {
+        if ((turnoJugador1 && nombreJugador.equals("Jugador 1")) ||
+            (!turnoJugador1 && nombreJugador.equals("Jugador 2"))) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(this, "¡No es tu turno!", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+    }
+
+    private void cambiarTurno() {
+        turnoJugador1 = !turnoJugador1; // Cambiar el turno
     }
 }

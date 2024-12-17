@@ -146,7 +146,7 @@ public class MenuInterfaz extends JFrame {
 		btnOpciones.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				new MenuOpciones();
 			}
 		});
 	}

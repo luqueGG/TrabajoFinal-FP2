@@ -27,6 +27,9 @@ public class MenuEleccion extends JFrame{
     private JButton btnPers4;
     // Imagenes
     private URL imagenUrlPers1 = MenuInterfaz.class.getResource("/assets/cangrejo.png");
+    private URL imagenUrlPers2 = MenuInterfaz.class.getResource("/assets/eye.png");
+    private URL imagenUrlPers3 = MenuInterfaz.class.getResource("/assets/victor.png");
+    private URL imagenUrlPers4 = MenuInterfaz.class.getResource("/assets/rosa.png");
     // Paneles
     private JPanel gridPanel ;
     public MenuEleccion() {
@@ -59,16 +62,16 @@ public class MenuEleccion extends JFrame{
         lblPers1.setIcon(new ImageIcon(imagenUrlPers1));
         btnPers1 = new JButton("Jugar con" );
         
-        lblPers2 = new JLabel("Label 2", SwingConstants.CENTER);
-        lblPers2.setForeground(Color.BLACK);
+        lblPers2 = new JLabel("", SwingConstants.CENTER);
+        lblPers2.setIcon(new ImageIcon(imagenUrlPers2));
         btnPers2 = new JButton("Jugar con");
         
-        lblPers3 = new JLabel("Label 3", SwingConstants.CENTER);
-        lblPers3.setForeground(Color.BLACK);
+        lblPers3 = new JLabel("", SwingConstants.CENTER);
+        lblPers3.setIcon(new ImageIcon(imagenUrlPers3));
         btnPers3 = new JButton("Jugar con");
         
-        lblPers4 = new JLabel("Label 4", SwingConstants.CENTER);
-        lblPers4.setForeground(Color.BLACK);
+        lblPers4 = new JLabel("", SwingConstants.CENTER);
+        lblPers4.setIcon(new ImageIcon(imagenUrlPers4));
         btnPers4 = new JButton("Jugar con");
         
         gridPanel.add(lblPers1);
@@ -82,6 +85,7 @@ public class MenuEleccion extends JFrame{
     }
     private void acciones(){
         actionBtnAtras();
+        actionBtnJugar1();
     }
     private void actionBtnAtras () {
         btnAtras.addActionListener(new ActionListener() {
@@ -91,4 +95,12 @@ public class MenuEleccion extends JFrame{
             }
         });
 	}
+    private void actionBtnJugar1() {
+        btnPers1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	new Jugar();
+            }
+        });
+    }
 }

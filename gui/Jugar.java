@@ -11,7 +11,7 @@ public class Jugar extends JFrame {
     private static final Color FONDO = new Color(93, 93, 110);
     private JPanel columna1, columna2, columna3;
     private JLabel titulo, labelNivelVida1, labelNivelVida2;
-
+    private URL kash = MenuInterfaz.class.getResource("/assets/kash.png");
     private Personaje jugador1, jugador2;
     private ControladorJuego controlador;
 
@@ -33,7 +33,7 @@ public class Jugar extends JFrame {
         controlador = new ControladorJuego(jugador1, jugador2);
 
         // Crear paneles para cada columna
-        columna1 = crearColumna(imagen, jugador1, jugador2, "Jugador 1");
+        columna1 = crearColumna(kash, jugador1, jugador2, "Jugador 1");
         columna2 = crearPanelCentral();
         columna3 = crearColumna(imagen, jugador2, jugador1, "Jugador 2");
 

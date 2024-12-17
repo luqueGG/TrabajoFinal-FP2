@@ -71,23 +71,55 @@ Este repositorio contiene un videojuego de combate por turnos desarrollado en **
 - **Interfaz Gráfica**: Swing (Java)
 
 ---
+# Juego de Batalla - Proyecto Final
 
-## Instrucciones de Instalación y Ejecución
-1. **Clonar el repositorio**:
-   ```bash
-   git clone https://github.com/tu-usuario/nombre-del-repositorio.git
-   ```
-2. **Compilar el proyecto**:
-   Asegúrate de tener Java instalado y configura tu entorno.
-   ```bash
-   javac Main.java
-   ```
-3. **Ejecutar el juego**:
-   ```bash
-   java Main
-   ```
+Este es un proyecto final que implementa un juego de batalla entre dos jugadores utilizando Java y la biblioteca Swing para la interfaz gráfica.
 
----
+## Estructura del Proyecto
+
+### 1. **Interfaz Gráfica**
+
+#### **Clase `Jugar`**
+La clase `Jugar` es responsable de gestionar la lógica y la interfaz gráfica del juego. Tiene los siguientes componentes clave:
+
+- **Paneles**: Se divide en tres columnas:
+  - Columna 1: Información del Jugador 1.
+  - Columna 2: Área central con el texto "VS".
+  - Columna 3: Información del Jugador 2.
+
+```java
+public class Jugar extends JFrame {
+    private JPanel columna1, columna2, columna3;
+    private JLabel titulo, labelNivelVida1, labelNivelVida2;
+    private URL kash = MenuInterfaz.class.getResource("/assets/kash.png");
+    private Personaje jugador1, jugador2;
+    private ControladorJuego controlador;
+
+    public Jugar(URL imagen) {
+        // Inicialización y configuración de la ventana principal
+        setSize(600, 480);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        getContentPane().setBackground(FONDO);
+        setLayout(new GridLayout(1, 3));
+
+        // Inicialización de personajes y controlador
+        jugador1 = new Personaje();
+        jugador2 = new Personaje();
+        controlador = new ControladorJuego(jugador1, jugador2);
+
+        // Crear paneles para cada columna
+        columna1 = crearColumna(kash, jugador1, jugador2, "Jugador 1");
+        columna2 = crearPanelCentral();
+        columna3 = crearColumna(imagen, jugador2, jugador1, "Jugador 2");
+
+        add(columna1);
+        add(columna2);
+        add(columna3);
+
+        setVisible(true);
+    }
+}
 
 ## Funcionamiento del Juego
 - Al iniciar el juego, se presenta un **menú principal** donde los jugadores pueden comenzar una nueva partida o salir.
@@ -107,28 +139,3 @@ Este repositorio contiene un videojuego de combate por turnos desarrollado en **
 ![Juego en Accion](ruta/a/la/captura-juego.png)
 
 ---
-
-## Contribuciones
-Las contribuciones son bienvenidas. Si deseas proponer cambios o mejoras:
-1. Realiza un **fork** de este repositorio.
-2. Crea una nueva rama con tus cambios.
-   ```bash
-   git checkout -b mi-nueva-funcionalidad
-   ```
-3. Envía un **pull request**.
-
----
-
-## Autor
-- **Nombre**: Fernando Gerson Luque Guevara
-- **Contacto**: [Correo Electrónico] | [LinkedIn]
-
----
-
-## Licencia
-Este proyecto se distribuye bajo la licencia **MIT**. Puedes consultar los detalles [aqui](LICENSE).
-
----
-
-## Agradecimientos
-Gracias por visitar el repositorio. ¡Espero que disfrutes jugando! 🎮
